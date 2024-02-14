@@ -226,9 +226,6 @@ class CommitOperationAdd:
             if with_tqdm:
                 with tqdm_stream_file(self.path_or_fileobj) as file:
                     yield file
-            else:
-                with open(self.path_or_fileobj, "rb") as file:
-                    yield file
         elif isinstance(self.path_or_fileobj, bytes):
             yield io.BytesIO(self.path_or_fileobj)
         elif isinstance(self.path_or_fileobj, io.BufferedIOBase):
